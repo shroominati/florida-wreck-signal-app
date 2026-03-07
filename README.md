@@ -219,11 +219,12 @@ Folder:
 onchain/
 ```
 
-## Telegram Remote Control For Local Codex
+## Telegram Spicy V2 Operator Bridge
 
 This repo includes a small polling bot at `scripts/telegram-codex-bot.js` so you
-can send Telegram messages to your local machine and have Codex run them without
-interactive approval prompts.
+can send `/spicy` commands from Telegram into a local Codex operator bridge.
+The bridge stays sandboxed, limits projects to an allowlist, keeps one active
+run at a time, and writes audit logs to `~/.spicywhite/logs/telegram-codex-bot.log`.
 
 ### Setup
 
@@ -235,14 +236,12 @@ TELEGRAM_BOT_TOKEN=...
 TELEGRAM_ALLOWED_CHAT_ID=1603197641
 TELEGRAM_ALLOWED_USER_ID=1603197641
 TELEGRAM_WORKDIR=/Users/alfredmunoz/clawbot
+SPICY_DEFAULT_PROJECT=clawbot
 TELEGRAM_ENABLE_SHELL=false
 TELEGRAM_BOT_LOG_PATH=~/.spicywhite/logs/telegram-codex-bot.log
 CODEX_DEFAULT_MODE=safe
 CODEX_SAFE_SANDBOX=workspace-write
-CODEX_SAFE_BYPASS=false
-# optional if you want /codex_mode fast
-# CODEX_FAST_SANDBOX=danger-full-access
-# CODEX_FAST_BYPASS=false
+CODEX_FAST_SANDBOX=workspace-write
 ```
 
 Get your chat ID by sending the bot a message once, then opening:
@@ -257,25 +256,37 @@ https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates
 npm run telegram:bot
 ```
 
+### Allowed projects
+
+- `clawbot` -> `/Users/alfredmunoz/clawbot`
+- `dual-caption` -> `/Users/alfredmunoz/Projects/dual-caption`
+- `saas_test` -> `/Users/alfredmunoz/Projects/saas_test`
+- `milestone_test` -> `/Users/alfredmunoz/Projects/milestone-test`
+
 ### Telegram commands
 
-- `/codex <prompt>` runs `codex exec` locally in the current mode.
-- `/codex_plan <prompt>` asks Codex for a plan only using a read-only bridge setup.
-- `/codex_status` shows mode, active run, workdir, and audit log location.
-- `/codex_stop` stops the active run.
-- `/codex_tail [bot|web|telegram|errors] [lines]` tails known logs only.
-- `/codex_mode safe|fast` changes Codex execution mode.
-- `/sh <command>` runs only an allowlisted command.
-- plain text messages are treated as `/codex` prompts.
+- `/spicy <prompt>` runs Codex on the active project.
+- `/spicy run <prompt>` is the explicit run form.
+- `/spicy status` shows running or idle state.
+- `/spicy stop` stops the active spawned Codex process.
+- `/spicy help` shows the operator command sheet.
+- `/spicy project <name>` switches to an allowlisted project.
+- `/spicy mode <safe|fast>` changes execution mode.
+- `/spicy logs` tails the bridge log.
+- `/spicy diff` shows changed files from the last run.
+- `/spicy doctor` shows project, mode, runtime state, web health, last error, and last snapshot.
+- `/spicy shell <command>` is optional and allowlist-only.
+- plain text messages are treated as `/spicy <prompt>`.
 
 ### Shell allowlist
 
-When `TELEGRAM_ENABLE_SHELL=true`, `/sh` is restricted to:
+When `TELEGRAM_ENABLE_SHELL=true`, `/spicy shell` is restricted to:
 
-- `ls`
 - `pwd`
+- `ls`
 - `git status`
 - `./spicywhite_ctl.sh status`
+- `./spicywhite_ctl.sh doctor`
 - `tail [-n N] bot|web|telegram|errors`
 
 Arbitrary shell is not supported.
@@ -288,14 +299,14 @@ Every Telegram bridge action is appended to:
 ~/.spicywhite/logs/telegram-codex-bot.log
 ```
 
-Each entry includes sender info, exact prompt or command, cwd, exit code, and
-git-tracked files changed in the configured workdir.
+Each entry includes start, stop, finish, or error events plus cwd, prompt
+summary, exit code, and files changed.
 
 ### Security
 
-This is remote code execution by design. Restrict it to your own Telegram
-chat/user IDs, keep the bot token secret, and prefer `CODEX_DEFAULT_MODE=safe`
-with `TELEGRAM_ENABLE_SHELL=false`.
+This is still a remote operator surface. Restrict it to your own Telegram
+chat/user IDs, keep the bot token secret, keep shell disabled unless necessary,
+and leave both safe and fast mode on `workspace-write`.
 
 Program supports:
 - `init_market`
