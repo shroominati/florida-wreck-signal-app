@@ -1,0 +1,26 @@
+{
+  "name": "bill-and-danney-token",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Create a Solana SPL token named Bill and Danney with supply 69,000,000,000",
+  "scripts": {
+    "create-token": "node scripts/create-token.js",
+    "jackpot": "node scripts/proof-of-burn-jackpot.js",
+    "app:start": "node server/index.js",
+    "app:dev": "node server/index.js",
+    "app:settle": "node scripts/settle-market.js",
+    "frontend:build": "node scripts/build-frontend.js",
+    "telegram:bot": "node scripts/telegram-codex-bot.js",
+    "onchain:build": "cd onchain && anchor build",
+    "onchain:test": "cd onchain && anchor test"
+  },
+  "dependencies": {
+    "@metaplex-foundation/mpl-token-metadata": "^3.4.0",
+    "@solana/spl-token": "^0.4.8",
+    "@solana/web3.js": "^1.98.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "nanoid": "^5.1.5",
+    "pg": "^8.13.1"
+  }
+}
