@@ -133,9 +133,38 @@ const LAND_FIND_ZONES = [
     stormWashover: 0.53,
     renourishmentRisk: 0.14,
     publicAccess: 0.18,
-    terrainSignals: ["storm wrack edges", "shallow berm pockets", "coral-rubble lag"],
+    historySignal: 0.79,
+    landformSignal: 0.82,
+    legalSensitivity: "high",
+    terrainSignals: ["black-earth midden soils", "higher hammock ground", "freshwater-linked occupation traces"],
     searchNote:
-      "Upper Keys shoreline context tied to the 1733 fleet, useful as a protected historical reference rather than a practical first-search beach.",
+      "Upper Keys heritage landscape tied to the 1733 salvage theater, best treated as a protected occupation corridor rather than a practical beach-search strip.",
+  },
+  {
+    id: "land-north-hutchinson-mclarty",
+    name: "North Hutchinson / McLarty Camp",
+    lat: 27.8616,
+    lon: -80.4372,
+    regionKey: "treasure-coast",
+    areaTags: [
+      "treasure-coast",
+      "sebastian",
+      "wabasso",
+      "north-hutchinson",
+      "mclarty",
+      "sebastian-inlet",
+    ],
+    beachRetention: 0.84,
+    duneRetention: 0.85,
+    stormWashover: 0.79,
+    renourishmentRisk: 0.17,
+    publicAccess: 0.43,
+    historySignal: 1,
+    landformSignal: 0.93,
+    legalSensitivity: "high",
+    terrainSignals: ["barrier-island high ground", "survivor-camp access nodes", "back-dune hammock margins"],
+    searchNote:
+      "Best-documented onshore aftermath corridor in the whole east-coast wreck record, centered on the McLarty survivors' and salvors' camp landscape.",
   },
   {
     id: "land-sebastian-wabasso",
@@ -149,9 +178,39 @@ const LAND_FIND_ZONES = [
     stormWashover: 0.8,
     renourishmentRisk: 0.22,
     publicAccess: 0.74,
+    historySignal: 0.95,
+    landformSignal: 0.84,
+    legalSensitivity: "medium",
     terrainSignals: ["lower dune toe cuts", "post-storm wrack line pockets", "coin-line shell lag"],
     searchNote:
       "Highest-priority beach-and-surf observation corridor from Sebastian toward Wabasso, where survivor-camp history and repeated storm re-exposure are strongest.",
+  },
+  {
+    id: "land-indian-river-narrows",
+    name: "Indian River Narrows / Bethel Creek",
+    lat: 27.7814,
+    lon: -80.4328,
+    regionKey: "treasure-coast",
+    areaTags: [
+      "treasure-coast",
+      "sebastian",
+      "vero",
+      "indian-river-narrows",
+      "bethel-creek",
+      "lagoon-margin",
+      "ais",
+    ],
+    beachRetention: 0.68,
+    duneRetention: 0.76,
+    stormWashover: 0.63,
+    renourishmentRisk: 0.11,
+    publicAccess: 0.19,
+    historySignal: 0.96,
+    landformSignal: 0.94,
+    legalSensitivity: "high",
+    terrainSignals: ["former inlet margins", "lagoon-edge shell ridges", "creek-mouth transport nodes"],
+    searchNote:
+      "Ais historical-geography corridor where lagoon movement, former inlet access, and occupation ridges overlap very strongly in the public literature.",
   },
   {
     id: "land-wabasso-vero-fort-pierce",
@@ -165,6 +224,9 @@ const LAND_FIND_ZONES = [
     stormWashover: 0.74,
     renourishmentRisk: 0.28,
     publicAccess: 0.69,
+    historySignal: 0.89,
+    landformSignal: 0.8,
+    legalSensitivity: "medium",
     terrainSignals: ["beach cusps", "scarped upper beach", "low swale pockets behind the berm"],
     searchNote:
       "Core Treasure Coast strip repeatedly producing 1715 finds, linking Wabasso, Vero, and the northern Fort Pierce sector.",
@@ -181,6 +243,9 @@ const LAND_FIND_ZONES = [
     stormWashover: 0.7,
     renourishmentRisk: 0.33,
     publicAccess: 0.77,
+    historySignal: 0.8,
+    landformSignal: 0.73,
+    legalSensitivity: "medium",
     terrainSignals: ["inlet-adjacent berm breaks", "heavy-shell lag", "storm-cut dune ramps"],
     searchNote:
       "North side of Fort Pierce where the Urca de Lima field, shoal transport, and inlet reshaping support shoreline deposition.",
@@ -197,9 +262,41 @@ const LAND_FIND_ZONES = [
     stormWashover: 0.66,
     renourishmentRisk: 0.49,
     publicAccess: 0.81,
+    historySignal: 0.42,
+    landformSignal: 0.47,
+    legalSensitivity: "medium",
     terrainSignals: ["narrow post-storm cuts", "berm toe shell layers", "breaker-line throw zones"],
     searchNote:
       "Secondary south-end analog corridor. Useful for storm-driven trade-loss context, but less supported than the core Sebastian-Wabasso-Fort Pierce belt.",
+  },
+  {
+    id: "land-eau-gallie-pentoaya",
+    name: "Eau Gallie / Ballard Park",
+    lat: 28.1422,
+    lon: -80.6268,
+    regionKey: "space-coast",
+    areaTags: [
+      "space-coast",
+      "melbourne",
+      "brevard",
+      "eau-gallie",
+      "ballard-park",
+      "indian-harbour-beach",
+      "gleason-park",
+      "pentoaya",
+      "lagoon-margin",
+    ],
+    beachRetention: 0.67,
+    duneRetention: 0.71,
+    stormWashover: 0.62,
+    renourishmentRisk: 0.18,
+    publicAccess: 0.28,
+    historySignal: 0.91,
+    landformSignal: 0.82,
+    legalSensitivity: "high",
+    terrainSignals: ["lagoon confluence edges", "village midden remnants", "barrier remnant approach points"],
+    searchNote:
+      "Pentoaya-linked corridor around Eau Gallie and the opposite barrier remnant, strong in scholarship but heavily shaped by modern development and protection.",
   },
   {
     id: "land-melbourne-washover",
@@ -213,9 +310,12 @@ const LAND_FIND_ZONES = [
     stormWashover: 0.84,
     renourishmentRisk: 0.28,
     publicAccess: 0.69,
+    historySignal: 0.76,
+    landformSignal: 0.79,
+    legalSensitivity: "medium",
     terrainSignals: ["washover fans", "storm berm overwash pockets", "dark heavy-sand streaks"],
     searchNote:
-      "Strongest Space Coast extension after the core Treasure Coast belt, supported by recent reporting and the published Melbourne proposal.",
+      "Southern Brevard pattern corridor supported by recent reporting, old shoreline topography, and lagoon-facing access zones, but weaker than the documented Treasure Coast camp landscapes.",
   },
   {
     id: "land-canaveral-dunes",
@@ -229,6 +329,9 @@ const LAND_FIND_ZONES = [
     stormWashover: 0.77,
     renourishmentRisk: 0.24,
     publicAccess: 0.58,
+    historySignal: 0.61,
+    landformSignal: 0.72,
+    legalSensitivity: "medium",
     terrainSignals: ["dune scarp bases", "storm-cut notches", "back-beach lag streaks"],
     searchNote:
       "Upper Space Coast follow-on corridor. Useful after Melbourne, but the historical support is weaker than the main Treasure Coast belt.",
@@ -245,9 +348,39 @@ const LAND_FIND_ZONES = [
     stormWashover: 0.72,
     renourishmentRisk: 0.36,
     publicAccess: 0.83,
+    historySignal: 0.57,
+    landformSignal: 0.64,
+    legalSensitivity: "medium",
     terrainSignals: ["cusp horns", "upper swash lag pockets", "storm wrack concentration lines"],
     searchNote:
       "Accessible Space Coast beach reach where current-set losses offshore can translate into upper-beach lag deposits after storms.",
+  },
+  {
+    id: "land-mosquito-lagoon-mounds",
+    name: "Mosquito Lagoon / Turtle Mound",
+    lat: 28.9634,
+    lon: -80.8442,
+    regionKey: "daytona-coast",
+    areaTags: [
+      "daytona-coast",
+      "volusia",
+      "mosquito-lagoon",
+      "seminole-rest",
+      "turtle-mound",
+      "ross-hammock",
+      "new-smyrna",
+    ],
+    beachRetention: 0.77,
+    duneRetention: 0.86,
+    stormWashover: 0.68,
+    renourishmentRisk: 0.08,
+    publicAccess: 0.16,
+    historySignal: 0.9,
+    landformSignal: 0.97,
+    legalSensitivity: "high",
+    terrainSignals: ["large shell mounds", "linear shell ridges", "estuarine refuge hammocks"],
+    searchNote:
+      "Canaveral National Seashore mound-and-lagoon landscape with very strong preservation literature, valuable for lawful study but heavily protected.",
   },
   {
     id: "land-daytona-ponce-beach",
@@ -261,6 +394,9 @@ const LAND_FIND_ZONES = [
     stormWashover: 0.76,
     renourishmentRisk: 0.35,
     publicAccess: 0.83,
+    historySignal: 0.64,
+    landformSignal: 0.7,
+    legalSensitivity: "medium",
     terrainSignals: ["bar-cut scarps", "upper swash heavy-sand pockets", "inlet-fed shell streaks"],
     searchNote:
       "Northern beach corridor around Ponce and Daytona where bar migration and storm cuts make a practical comparison zone for shoreline finds.",
@@ -839,6 +975,215 @@ const CURATED_ADDENDUM_JOURNALS = [
   },
 ];
 
+const CURATED_LAND_BRIEF_SOURCES = [
+  {
+    id: "land-brief-dhr-faq",
+    name: "Florida DHR - Archaeology FAQs",
+    type: "legal-context",
+    status: "curated-reference",
+    url: "https://dos.fl.gov/historical/archaeology/archaeology-faqs/",
+    notes: "State archaeology FAQ covering legality, ownership, reporting, and permit boundaries for Florida sites.",
+  },
+  {
+    id: "land-brief-master-site-file",
+    name: "Florida Master Site File",
+    type: "site-register",
+    status: "curated-reference",
+    url: "https://dos.fl.gov/historical/preservation/master-site-file/",
+    notes: "Official state site register entry point for known archaeological locations and reporting workflows.",
+  },
+  {
+    id: "land-brief-owners-guide",
+    name: "Owner's Guide to Protecting Archaeological Sites",
+    type: "stewardship-guide",
+    status: "curated-reference",
+    url: "https://files.floridados.gov/media/30867/handbook.pdf",
+    notes: "State stewardship handbook emphasizing documentation and non-disturbance over collecting or excavation.",
+  },
+  {
+    id: "land-brief-nps-mclarty",
+    name: "NPS - Spanish Fleet Survivors and Salvors Camp Site",
+    type: "site-register",
+    status: "curated-reference",
+    url: "https://npgallery.nps.gov/AssetDetail/NRIS/70000186",
+    notes: "National Register documentation for the 1715 survivors' and salvors' camp on North Hutchinson Island.",
+  },
+  {
+    id: "land-brief-state-parks-sebastian",
+    name: "Florida State Parks - Sebastian Inlet History",
+    type: "state-park-history",
+    status: "curated-reference",
+    url: "https://www.floridastateparks.org/learn/history-and-culture-sebastian-inlet",
+    notes: "State interpretation for Sebastian Inlet history and the protected McLarty heritage context.",
+  },
+  {
+    id: "land-brief-pentoaya",
+    name: "Brevard Indian River Journal - Pentoaya Summary",
+    type: "journal-summary",
+    status: "curated-reference",
+    url: "https://www.brevardfl.gov/docs/default-source/historical-commission-docs/not-508-indian-river-journal/2008-indian-river-journal-spring-summer.pdf",
+    notes: "Public summary of Lanham and Brech's Pentoaya work around Eau Gallie and the Indian River Lagoon.",
+  },
+  {
+    id: "land-brief-indian-river-plan",
+    name: "Indian River County Future Land Use Element",
+    type: "county-plan",
+    status: "curated-reference",
+    url: "https://indianriver.gov/Document%20Center/Services/Planning-and-Development/Planning%20Division/Comprehensive%20Plan/Ch02-Future-Land-Use.pdf",
+    notes: "County planning source useful for historic-property overlays and lagoon-margin landform context.",
+  },
+  {
+    id: "land-brief-seminole-rest",
+    name: "NPS - Seminole Rest History",
+    type: "nps-history",
+    status: "curated-reference",
+    url: "https://www.nps.gov/cana/learn/historyculture/seminole.htm",
+    notes: "National Park Service overview of the Seminole Rest shell-mound landscape within Mosquito Lagoon.",
+  },
+  {
+    id: "land-brief-turtle-mound",
+    name: "NPS - Turtle Mound",
+    type: "nps-history",
+    status: "curated-reference",
+    url: "https://www.nps.gov/cana/learn/historyculture/turtlemound.htm",
+    notes: "NPS interpretation of Turtle Mound and associated lagoon-side shell-ridge landscapes.",
+  },
+  {
+    id: "land-brief-lignumvitae",
+    name: "Lignumvitae Key Botanical State Park Plan",
+    type: "park-plan",
+    status: "curated-reference",
+    url: "https://floridadep.gov/sites/default/files/04.23.2012%20Approved%20Plan.pdf",
+    notes: "Keys management-plan source for occupation traces, midden context, and legal protections on higher keys.",
+  },
+  {
+    id: "land-brief-1715-finding-aid",
+    name: "Indian River County 1715 Shipwrecks Finding Aid",
+    type: "archive-finding-aid",
+    status: "curated-reference",
+    url: "https://www.indianriver.gov/Document%20Center/Services/Library/Genealogy/FindingAid/shipwrecks1715.pdf",
+    notes: "Archive-center guide for the local 1715 paper trail in Indian River County collections.",
+  },
+  {
+    id: "land-brief-dickinson",
+    name: "UF Digital - Jonathan Dickinson Excerpt",
+    type: "primary-source",
+    status: "curated-reference",
+    url: "https://ufdcimages.uflib.ufl.edu/UF/00/06/73/37/00001/dickinson_journal.pdf",
+    notes: "Public digital access point for Dickinson's journal and east-coast travel narrative.",
+  },
+  {
+    id: "land-brief-florida-museum-archaeopedology",
+    name: "Florida Museum - Southeastern Archaeopedology",
+    type: "research-project",
+    status: "curated-reference",
+    url: "https://www.floridamuseum.ufl.edu/envarch/research/florida/southeastern-archaeopedology/",
+    notes: "Florida Museum context for midden formation, shoreline change, and site preservation on the southeast coast.",
+  },
+  {
+    id: "land-brief-ancestral-keys",
+    name: "Chronology Building in the Ancestral Florida Keys",
+    type: "journal-article",
+    status: "curated-reference",
+    url: "https://scholarship.miami.edu/esploro/outputs/journalArticle/Chronology-building-in-the-Ancestral-Florida/991032724971902976",
+    notes: "Recent chronology-building source for ancestral Keys occupation and site persistence on higher keys.",
+  },
+];
+
+const CURATED_LAND_BRIEF_JOURNALS = [
+  {
+    id: "journal-land-brief-mclarty",
+    title: "North Hutchinson / McLarty is the clearest wreck-related onshore camp landscape",
+    year: 2026,
+    sourceLabel: "Curated from florida_land_onshore_prediction_brief.docx",
+    sourceId: "land-brief-nps-mclarty",
+    verificationStatus: "curated-summary",
+    areaTags: ["treasure-coast", "sebastian", "north-hutchinson", "mclarty", "sebastian-inlet", "wabasso"],
+    cargoProfile: "1715 survivors' camp and salvage logistics landscape",
+    confidence: 0.96,
+    excerpt:
+      "Curated summary: the North Hutchinson Island and Sebastian Inlet corridor is the single clearest onshore wreck-aftermath landscape, anchored by the publicly recognized 1715 survivors' and salvors' camp at McLarty.",
+  },
+  {
+    id: "journal-land-brief-ais-narrows",
+    title: "Indian River Narrows / Bethel Creek concentrates Ais and inlet-edge signal",
+    year: 2026,
+    sourceLabel: "Curated from florida_land_onshore_prediction_brief.docx",
+    sourceId: "land-brief-indian-river-plan",
+    verificationStatus: "curated-summary",
+    areaTags: ["treasure-coast", "sebastian", "vero", "indian-river-narrows", "bethel-creek", "lagoon-margin", "ais"],
+    cargoProfile: "contact-period occupation and maritime refuge landscape",
+    confidence: 0.93,
+    excerpt:
+      "Curated summary: scholarship and historical geography place the Ais paramount-town corridor around Indian River Narrows and Bethel Creek, where former inlet access, lagoon traffic, and settlement overlap strongly.",
+  },
+  {
+    id: "journal-land-brief-pentoaya",
+    title: "Eau Gallie and opposite barrier remnants preserve the strongest Pentoaya pattern",
+    year: 2026,
+    sourceLabel: "Curated from florida_land_onshore_prediction_brief.docx",
+    sourceId: "land-brief-pentoaya",
+    verificationStatus: "curated-summary",
+    areaTags: ["space-coast", "eau-gallie", "ballard-park", "indian-harbour-beach", "gleason-park", "pentoaya", "lagoon-margin"],
+    cargoProfile: "village midden and seasonal occupation signal",
+    confidence: 0.91,
+    excerpt:
+      "Curated summary: Eau Gallie, Ballard Park, and the opposite barrier-island remnant preserve a strong Pentoaya pattern with shoreline occupation, midden deposits, and later truncation signatures.",
+  },
+  {
+    id: "journal-land-brief-mosquito-lagoon",
+    title: "Mosquito Lagoon mound landscapes are the strongest north-coast preservation belt",
+    year: 2026,
+    sourceLabel: "Curated from florida_land_onshore_prediction_brief.docx",
+    sourceId: "land-brief-seminole-rest",
+    verificationStatus: "curated-summary",
+    areaTags: ["daytona-coast", "volusia", "mosquito-lagoon", "seminole-rest", "turtle-mound", "ross-hammock", "new-smyrna"],
+    cargoProfile: "mound, ridge, and estuarine refuge landscape",
+    confidence: 0.9,
+    excerpt:
+      "Curated summary: the Mosquito Lagoon, Seminole Rest, Turtle Mound, and Ross Hammock belt has exceptionally strong preservation literature with shell mounds, ridges, and long estuarine occupation.",
+  },
+  {
+    id: "journal-land-brief-keys",
+    title: "Upper Keys on-land signal is heritage occupation, not buried-treasure inland logic",
+    year: 2026,
+    sourceLabel: "Curated from florida_land_onshore_prediction_brief.docx",
+    sourceId: "land-brief-ancestral-keys",
+    verificationStatus: "curated-summary",
+    areaTags: ["keys", "upper-keys", "indian-key", "islamorada", "hawk-channel"],
+    cargoProfile: "protected Native and early historic occupation landscapes",
+    confidence: 0.85,
+    excerpt:
+      "Curated summary: in the Upper Keys the strongest land-side pattern is higher-key occupation, black-earth midden, and protected early-historic context linked to the wider 1733 salvage landscape rather than inland treasure folklore.",
+  },
+  {
+    id: "journal-land-brief-landform-model",
+    title: "Former inlets, lagoon shell ridges, and hammock highs are the recurring landform model",
+    year: 2026,
+    sourceLabel: "Curated from florida_land_onshore_prediction_brief.docx",
+    sourceId: "land-brief-florida-museum-archaeopedology",
+    verificationStatus: "curated-summary",
+    areaTags: ["treasure-coast", "space-coast", "daytona-coast", "keys", "lagoon-margin"],
+    cargoProfile: "landform persistence and archaeological preservation model",
+    confidence: 0.87,
+    excerpt:
+      "Curated summary: the strongest on-land contexts repeatedly stack former inlet throats, lagoon-edge shell ridges, barrier-island high ground, creek mouths, and higher-key midden surfaces.",
+  },
+  {
+    id: "journal-land-brief-legal",
+    title: "Florida on-land prediction must stay inside archaeology law and stewardship rules",
+    year: 2026,
+    sourceLabel: "Curated from florida_land_onshore_prediction_brief.docx",
+    sourceId: "land-brief-dhr-faq",
+    verificationStatus: "curated-summary",
+    areaTags: ["treasure-coast", "space-coast", "daytona-coast", "keys"],
+    cargoProfile: "legal and stewardship guidance",
+    confidence: 0.94,
+    excerpt:
+      "Curated summary: Florida law requires landowner permission, protects state and federal lands, and forbids disturbing burials or archaeological sites without proper authority.",
+  },
+];
+
 function buildSeedData() {
   return {
     sources: [
@@ -880,6 +1225,7 @@ function buildSeedData() {
       },
       ...CURATED_REPORT_SOURCES,
       ...CURATED_ADDENDUM_SOURCES,
+      ...CURATED_LAND_BRIEF_SOURCES,
     ],
     knownWrecks: [
       {
@@ -959,6 +1305,7 @@ function buildSeedData() {
       },
       ...CURATED_REPORT_JOURNALS,
       ...CURATED_ADDENDUM_JOURNALS,
+      ...CURATED_LAND_BRIEF_JOURNALS,
     ],
     candidateZones: REQUIRED_ZONES,
     importedKnownWrecks: [],
@@ -1040,6 +1387,7 @@ function normalizeDb(parsed) {
       ...(db.sources || seed.sources),
       ...CURATED_REPORT_SOURCES,
       ...CURATED_ADDENDUM_SOURCES,
+      ...CURATED_LAND_BRIEF_SOURCES,
     ]),
     knownWrecks: dedupeById([...(Array.isArray(db.knownWrecks) ? db.knownWrecks : seed.knownWrecks), ...CURATED_REPORT_WRECKS]),
     stormEvents: Array.isArray(db.stormEvents) && db.stormEvents.length ? db.stormEvents : seed.stormEvents,
@@ -1047,6 +1395,7 @@ function normalizeDb(parsed) {
       ...(Array.isArray(db.journalEntries) ? db.journalEntries : seed.journalEntries),
       ...CURATED_REPORT_JOURNALS,
       ...CURATED_ADDENDUM_JOURNALS,
+      ...CURATED_LAND_BRIEF_JOURNALS,
     ]),
     candidateZones: ensureCoverageZones(db.candidateZones || seed.candidateZones),
     importedKnownWrecks: Array.isArray(db.importedKnownWrecks) ? db.importedKnownWrecks : [],
@@ -1101,6 +1450,10 @@ function inferAreaTags(text, regionHint = "") {
     { tags: ["biscayne", "miami", "fort-lauderdale"], pattern: /(biscayne|miami|fort lauderdale|pompano)/ },
     { tags: ["daytona-coast", "daytona", "ponce", "volusia", "new-smyrna"], pattern: /(daytona|ponce|ponce inlet|volusia|new smyrna)/ },
     { tags: ["st-augustine", "matanzas", "north-east-florida"], pattern: /(st\.?\s*augustine|matanzas)/ },
+    { tags: ["treasure-coast", "north-hutchinson", "mclarty", "sebastian-inlet", "sebastian"], pattern: /(north hutchinson|mclarty|survivors'? camp|salvors'? camp|sebastian inlet)/ },
+    { tags: ["treasure-coast", "indian-river-narrows", "bethel-creek", "lagoon-margin", "ais"], pattern: /(indian river narrows|bethel creek|ais|santa lucia)/ },
+    { tags: ["space-coast", "eau-gallie", "ballard-park", "indian-harbour-beach", "gleason-park", "pentoaya", "lagoon-margin"], pattern: /(eau gallie|ballard park|indian harbour beach|gleason park|pentoaya)/ },
+    { tags: ["daytona-coast", "mosquito-lagoon", "seminole-rest", "turtle-mound", "ross-hammock", "volusia"], pattern: /(mosquito lagoon|seminole rest|turtle mound|ross hammock)/ },
   ];
   return Array.from(new Set(lookups.filter((item) => item.pattern.test(value)).flatMap((item) => item.tags)));
 }
@@ -1293,6 +1646,12 @@ function buildLandPredictionDrivers(zone, { journalEvidence, stormEvidence, wrec
   if (feederZone) {
     drivers.push(`Primary feeder corridor is ${feederZone.name} (${feederZone.potentialScore}).`);
   }
+  if (zone.historySignal >= 0.86) {
+    drivers.push("Published archaeology, site-register, and management-plan evidence is especially strong here.");
+  }
+  if (zone.landformSignal >= 0.84) {
+    drivers.push("Former inlets, lagoon ridges, hammock highs, or mound landforms recur in this corridor.");
+  }
   if (stormEvidence >= 10 || zone.stormWashover >= 0.76) {
     drivers.push("Historic storm wash-over and beach runup favor shoreline deposition here.");
   }
@@ -1307,6 +1666,9 @@ function buildLandPredictionDrivers(zone, { journalEvidence, stormEvidence, wrec
   }
   if (zone.renourishmentRisk >= 0.35) {
     drivers.push("Renourishment and beach reworking may bury or disperse older signals, so treat this as a corridor only.");
+  }
+  if (zone.legalSensitivity === "high") {
+    drivers.push("This is a protected heritage landscape. Treat it as an archive-and-permitting target, not a casual search spot.");
   }
   return drivers.slice(0, 4);
 }
@@ -1412,6 +1774,8 @@ function scoreLandFindZone(zone, db, offshoreZones) {
     zone.beachRetention * 11 +
     zone.duneRetention * 9 +
     zone.stormWashover * 9 +
+    Number(zone.historySignal || 0) * 12 +
+    Number(zone.landformSignal || 0) * 8 +
     feederBoost * 10 -
     zone.renourishmentRisk * 4 +
     zone.publicAccess * 1.5 +
@@ -1443,6 +1807,8 @@ function scoreLandFindZone(zone, db, offshoreZones) {
       stormWashover: zone.stormWashover,
       renourishmentRisk: zone.renourishmentRisk,
       publicAccess: zone.publicAccess,
+      historySignal: Number(zone.historySignal || 0),
+      landformSignal: Number(zone.landformSignal || 0),
     },
     feederZone: feederZone
       ? {
@@ -1463,7 +1829,9 @@ function scoreLandFindZone(zone, db, offshoreZones) {
       nearbyKnownWrecks,
     }),
     recommendation:
-      "Use this for lawful shoreline observation planning only. Stay at broad public-access corridor scale and verify protected-area rules before any field activity.",
+      zone.legalSensitivity === "high"
+        ? "Protected land context only. Use this for records work, landowner coordination, and professional survey planning rather than casual field activity."
+        : "Use this for lawful shoreline observation planning only. Stay at broad public-access corridor scale and verify protected-area rules before any field activity.",
   };
 }
 
@@ -1701,10 +2069,10 @@ function buildOverview(db) {
     },
     modelNotes: [
       "Ocean scores combine journal evidence, storm corridors, known wreck gravity, seabed retention, and survey gaps.",
-      "Land-find targets weight feeder corridors, storm wash-over, beach and dune retention, and nearby wreck clustering.",
+      "Land-find targets weight feeder corridors, storm wash-over, beach and dune retention, nearby wreck clustering, and archaeology-brief landform signals.",
       "Coverage now spans the Florida Keys through the Treasure Coast and Space Coast up to Daytona comparison zones.",
       "Predict views show the full scored corridor set while keeping a region-balanced order near the top.",
-      "Candidate zones stay intentionally broad. Use them for archival follow-up, permitting, and non-invasive survey planning.",
+      "Protected camp, midden, and mound landscapes are kept at broad corridor scale for lawful archival follow-up, permitting, and non-invasive survey planning.",
     ],
     coverageRegions: buildCoverageRegions(candidateZones),
     sources: db.sources,
