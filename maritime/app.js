@@ -30,10 +30,8 @@ const state = {
   },
 };
 
-const FLORIDA_REFERENCE_BOUNDS = [
-  [24.1, -87.8],
-  [31.2, -79.4],
-];
+const FLORIDA_REFERENCE_CENTER = [27.8, -81.7];
+const FLORIDA_REFERENCE_ZOOM = 6;
 
 const refs = {
   configText: document.getElementById("configText"),
@@ -706,7 +704,7 @@ function renderReferenceView() {
       );
       marker.addTo(layerGroup);
     });
-    map.fitBounds(FLORIDA_REFERENCE_BOUNDS, { padding: [20, 20] });
+    map.setView(FLORIDA_REFERENCE_CENTER, FLORIDA_REFERENCE_ZOOM);
     setTimeout(() => map.invalidateSize(), 0);
   }
 
