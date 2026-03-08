@@ -30,6 +30,11 @@ const state = {
   },
 };
 
+const FLORIDA_REFERENCE_BOUNDS = [
+  [24.1, -87.8],
+  [31.2, -79.4],
+];
+
 const refs = {
   configText: document.getElementById("configText"),
   warningText: document.getElementById("warningText"),
@@ -395,6 +400,13 @@ function invalidateVisibleMaps() {
   }, 80);
 }
 
+function focusPredictSelection() {
+  refs.predictTitle?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+}
+
 function metersToFeet(value) {
   return Number(value || 0) * 3.28084;
 }
@@ -677,7 +689,6 @@ function renderReferenceView() {
   if (map) {
     const layerGroup = state.maps.referencesLayer;
     layerGroup.clearLayers();
-    const latLngs = [];
     points.forEach((point) => {
       const marker = window.L.circleMarker([point.lat, point.lon], {
         radius: point.type === "source" ? 5 : 6,
@@ -694,11 +705,8 @@ function renderReferenceView() {
         `,
       );
       marker.addTo(layerGroup);
-      latLngs.push(window.L.latLng(point.lat, point.lon));
     });
-    if (latLngs.length) {
-      map.fitBounds(window.L.latLngBounds(latLngs), { padding: [28, 28] });
-    }
+    map.fitBounds(FLORIDA_REFERENCE_BOUNDS, { padding: [20, 20] });
     setTimeout(() => map.invalidateSize(), 0);
   }
 
@@ -1179,11 +1187,15 @@ refs.predictList.addEventListener("click", (event) => {
     state.predict.selectedLandZoneId = zoneId;
     if (action === "route-land") {
       openRouteForZone(selectedLandZone());
+    } else {
+      focusPredictSelection();
     }
   } else if (action === "predict-select-ocean" || action === "route-ocean") {
     selectZone(zoneId);
     if (action === "route-ocean") {
       openRouteForZone(selectedPredictOceanZone());
+    } else {
+      focusPredictSelection();
     }
   }
   state.view = "predict";
@@ -1201,11 +1213,15 @@ refs.predictSummary.addEventListener("click", (event) => {
     state.predict.selectedLandZoneId = zoneId;
     if (action === "route-land") {
       openRouteForZone(selectedLandZone());
+    } else {
+      focusPredictSelection();
     }
   } else if (action === "predict-select-ocean" || action === "route-ocean") {
     selectZone(zoneId);
     if (action === "route-ocean") {
       openRouteForZone(selectedPredictOceanZone());
+    } else {
+      focusPredictSelection();
     }
   }
   state.view = "predict";
