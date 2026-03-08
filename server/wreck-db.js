@@ -136,6 +136,8 @@ const LAND_FIND_ZONES = [
     historySignal: 0.79,
     landformSignal: 0.82,
     legalSensitivity: "high",
+    findingType: "protected occupation landscape",
+    coordinateBasis: "Approx public-study center based on Indian Key / Upper Keys heritage landscape references.",
     terrainSignals: ["black-earth midden soils", "higher hammock ground", "freshwater-linked occupation traces"],
     searchNote:
       "Upper Keys heritage landscape tied to the 1733 salvage theater, best treated as a protected occupation corridor rather than a practical beach-search strip.",
@@ -162,6 +164,8 @@ const LAND_FIND_ZONES = [
     historySignal: 1,
     landformSignal: 0.93,
     legalSensitivity: "high",
+    findingType: "survivor and salvors' camp landscape",
+    coordinateBasis: "Approx public-study center based on the McLarty / North Hutchinson survivors' camp literature.",
     terrainSignals: ["barrier-island high ground", "survivor-camp access nodes", "back-dune hammock margins"],
     searchNote:
       "Best-documented onshore aftermath corridor in the whole east-coast wreck record, centered on the McLarty survivors' and salvors' camp landscape.",
@@ -181,6 +185,8 @@ const LAND_FIND_ZONES = [
     historySignal: 0.95,
     landformSignal: 0.84,
     legalSensitivity: "medium",
+    findingType: "shoreline exposure corridor",
+    coordinateBasis: "Approx corridor center spanning the Sebastian Inlet to Wabasso beach belt.",
     terrainSignals: ["lower dune toe cuts", "post-storm wrack line pockets", "coin-line shell lag"],
     searchNote:
       "Highest-priority beach-and-surf observation corridor from Sebastian toward Wabasso, where survivor-camp history and repeated storm re-exposure are strongest.",
@@ -208,6 +214,8 @@ const LAND_FIND_ZONES = [
     historySignal: 0.96,
     landformSignal: 0.94,
     legalSensitivity: "high",
+    findingType: "lagoon and former-inlet settlement corridor",
+    coordinateBasis: "Approx public-study center based on Indian River Narrows and Bethel Creek historical-geography references.",
     terrainSignals: ["former inlet margins", "lagoon-edge shell ridges", "creek-mouth transport nodes"],
     searchNote:
       "Ais historical-geography corridor where lagoon movement, former inlet access, and occupation ridges overlap very strongly in the public literature.",
@@ -227,6 +235,8 @@ const LAND_FIND_ZONES = [
     historySignal: 0.89,
     landformSignal: 0.8,
     legalSensitivity: "medium",
+    findingType: "shoreline exposure corridor",
+    coordinateBasis: "Approx corridor center spanning Wabasso, Vero, and north Fort Pierce.",
     terrainSignals: ["beach cusps", "scarped upper beach", "low swale pockets behind the berm"],
     searchNote:
       "Core Treasure Coast strip repeatedly producing 1715 finds, linking Wabasso, Vero, and the northern Fort Pierce sector.",
@@ -246,6 +256,8 @@ const LAND_FIND_ZONES = [
     historySignal: 0.8,
     landformSignal: 0.73,
     legalSensitivity: "medium",
+    findingType: "inlet-adjacent beach corridor",
+    coordinateBasis: "Approx corridor center for the north Fort Pierce beach-and-inlet margin.",
     terrainSignals: ["inlet-adjacent berm breaks", "heavy-shell lag", "storm-cut dune ramps"],
     searchNote:
       "North side of Fort Pierce where the Urca de Lima field, shoal transport, and inlet reshaping support shoreline deposition.",
@@ -265,6 +277,8 @@ const LAND_FIND_ZONES = [
     historySignal: 0.42,
     landformSignal: 0.47,
     legalSensitivity: "medium",
+    findingType: "south-end comparison corridor",
+    coordinateBasis: "Approx corridor center for the Jupiter to Palm Beach beachface analog zone.",
     terrainSignals: ["narrow post-storm cuts", "berm toe shell layers", "breaker-line throw zones"],
     searchNote:
       "Secondary south-end analog corridor. Useful for storm-driven trade-loss context, but less supported than the core Sebastian-Wabasso-Fort Pierce belt.",
@@ -294,6 +308,8 @@ const LAND_FIND_ZONES = [
     historySignal: 0.91,
     landformSignal: 0.82,
     legalSensitivity: "high",
+    findingType: "village midden and barrier-remnant corridor",
+    coordinateBasis: "Approx public-study center based on Eau Gallie, Ballard Park, and opposite barrier-remnant references.",
     terrainSignals: ["lagoon confluence edges", "village midden remnants", "barrier remnant approach points"],
     searchNote:
       "Pentoaya-linked corridor around Eau Gallie and the opposite barrier remnant, strong in scholarship but heavily shaped by modern development and protection.",
@@ -313,6 +329,8 @@ const LAND_FIND_ZONES = [
     historySignal: 0.76,
     landformSignal: 0.79,
     legalSensitivity: "medium",
+    findingType: "barrier-ridge and washover corridor",
+    coordinateBasis: "Approx corridor center for the Melbourne Beach and southern Brevard barrier-ridge pattern.",
     terrainSignals: ["washover fans", "storm berm overwash pockets", "dark heavy-sand streaks"],
     searchNote:
       "Southern Brevard pattern corridor supported by recent reporting, old shoreline topography, and lagoon-facing access zones, but weaker than the documented Treasure Coast camp landscapes.",
@@ -332,6 +350,8 @@ const LAND_FIND_ZONES = [
     historySignal: 0.61,
     landformSignal: 0.72,
     legalSensitivity: "medium",
+    findingType: "dune and back-beach corridor",
+    coordinateBasis: "Approx corridor center for the Cape Canaveral dune and back-beach shelf.",
     terrainSignals: ["dune scarp bases", "storm-cut notches", "back-beach lag streaks"],
     searchNote:
       "Upper Space Coast follow-on corridor. Useful after Melbourne, but the historical support is weaker than the main Treasure Coast belt.",
@@ -351,6 +371,8 @@ const LAND_FIND_ZONES = [
     historySignal: 0.57,
     landformSignal: 0.64,
     legalSensitivity: "medium",
+    findingType: "accessible beach-cusp corridor",
+    coordinateBasis: "Approx corridor center for the Cocoa Beach cusp-line segment.",
     terrainSignals: ["cusp horns", "upper swash lag pockets", "storm wrack concentration lines"],
     searchNote:
       "Accessible Space Coast beach reach where current-set losses offshore can translate into upper-beach lag deposits after storms.",
@@ -378,6 +400,8 @@ const LAND_FIND_ZONES = [
     historySignal: 0.9,
     landformSignal: 0.97,
     legalSensitivity: "high",
+    findingType: "mound and shell-ridge landscape",
+    coordinateBasis: "Approx public-study center based on the Mosquito Lagoon, Seminole Rest, and Turtle Mound heritage belt.",
     terrainSignals: ["large shell mounds", "linear shell ridges", "estuarine refuge hammocks"],
     searchNote:
       "Canaveral National Seashore mound-and-lagoon landscape with very strong preservation literature, valuable for lawful study but heavily protected.",
@@ -397,6 +421,8 @@ const LAND_FIND_ZONES = [
     historySignal: 0.64,
     landformSignal: 0.7,
     legalSensitivity: "medium",
+    findingType: "northern beach comparison corridor",
+    coordinateBasis: "Approx corridor center for the Daytona to Ponce shoreline belt.",
     terrainSignals: ["bar-cut scarps", "upper swash heavy-sand pockets", "inlet-fed shell streaks"],
     searchNote:
       "Northern beach corridor around Ponce and Daytona where bar migration and storm cuts make a practical comparison zone for shoreline finds.",

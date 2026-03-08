@@ -155,6 +155,20 @@ function coordLinkHtml(zone, currentPosition = null) {
   )}</a>`;
 }
 
+function hasApproxCenter(zone) {
+  return Boolean(zone?.coordinateBasis || zone?.findingType);
+}
+
+function coordLabelForZone(zone) {
+  if (hasApproxCenter(zone)) {
+    return "Approx Center";
+  }
+  if (zone?.driftRetention !== undefined || zone?.seabedRetention !== undefined) {
+    return "Coarse Center";
+  }
+  return "Coords";
+}
+
 function nearbyWreckSummary(wrecks) {
   const items = Array.isArray(wrecks) ? wrecks : [];
   if (!items.length) {
@@ -567,7 +581,8 @@ function renderPredictView() {
         <p class="predict-lead">${escapeHtml(zone.searchNote)}</p>
         <div class="metric-grid">
           <div><label>Land Corridor</label><strong>${escapeHtml(zone.name)}</strong></div>
-          <div><label>Beach Center</label><strong>${coordLinkHtml(zone)}</strong></div>
+          <div><label>${escapeHtml(coordLabelForZone(zone))}</label><strong>${coordLinkHtml(zone)}</strong></div>
+          <div><label>Finding Type</label><strong>${escapeHtml(zone.findingType || "land corridor")}</strong></div>
           <div><label>Priority Score</label><strong>${escapeHtml(String(zone.potentialScore))}</strong></div>
           <div><label>Confidence</label><strong>${fmtPercent(zone.confidence)}</strong></div>
           <div><label>Storm Pattern</label><strong>${escapeHtml(String(zone.evidence?.stormEvidence || "n/a"))}</strong></div>
@@ -579,6 +594,11 @@ function renderPredictView() {
           <div><label>Beach Hold</label><strong>${fmtPercent(zone.evidence?.beachRetention || 0)}</strong></div>
         </div>
         <p class="meta-line">Showing ${escapeHtml(String(zones.length))} on-land corridors. Ranks combine archival evidence, storm history, nearby wreck anchors, feeder-corridor strength, and beach/dune retention patterns.</p>
+        ${
+          zone.coordinateBasis
+            ? `<p class="meta-line">Basis: ${escapeHtml(zone.coordinateBasis)}</p>`
+            : ""
+        }
         <p class="meta-line">Look for: ${escapeHtml((zone.terrainSignals || []).join(" • ") || "post-storm beach and dune signal changes")}</p>
         <ul class="focus-list">
           ${zoneFocusGuidance(zone).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
@@ -606,7 +626,12 @@ function renderPredictView() {
           </div>
           <p>${escapeHtml(candidate.searchNote)}</p>
           <p class="meta-line">${escapeHtml(isOcean ? "Ocean pattern" : "Shore pattern")}: ${escapeHtml(zoneFocusGuidance(candidate)[0] || "Coarse corridor review only.")}</p>
-          <p class="meta-line">${escapeHtml(isOcean ? "Offshore corridor" : "Beach corridor")} centered near ${coordLinkHtml(candidate)}</p>
+          <p class="meta-line">${escapeHtml(isOcean ? "Offshore corridor" : "Land corridor")} centered near ${coordLinkHtml(candidate)}</p>
+          ${
+            !isOcean && candidate.coordinateBasis
+              ? `<p class="meta-line">Basis: ${escapeHtml(candidate.coordinateBasis)}</p>`
+              : ""
+          }
           <p class="meta-line">${
             isOcean
               ? `Depth band: ${escapeHtml(candidate.depthProfile?.label || "n/a")}`
