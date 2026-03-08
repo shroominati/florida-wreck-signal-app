@@ -37,6 +37,8 @@ const { hashToken, verifyPassword } = require("./security");
 const PORT = Number(process.env.PORT || 8787);
 const SESSION_TTL_DAYS = 14;
 const QUICKBOOKS_STATE_TTL_MINUTES = 15;
+const SITE_BASIC_AUTH_USERNAME = String(process.env.SITE_BASIC_AUTH_USERNAME || "").trim();
+const SITE_BASIC_AUTH_PASSWORD = String(process.env.SITE_BASIC_AUTH_PASSWORD || "").trim();
 const DEMO_ACCOUNT_CREDENTIALS = [
   { email: "owner@bluecurrent.local", password: "owner123!" },
   { email: "dispatch@bluecurrent.local", password: "dispatch123!" },
@@ -50,6 +52,48 @@ const app = express();
 
 app.use(cors());
 app.use(express.json({ limit: "20mb" }));
+
+app.use((req, res, next) => {
+  if (!SITE_BASIC_AUTH_USERNAME || !SITE_BASIC_AUTH_PASSWORD) {
+    next();
+    return;
+  }
+
+  if (req.path === "/api/health") {
+    next();
+    return;
+  }
+
+  const auth = req.headers.authorization || "";
+  const match = auth.match(/^Basic\s+(.+)$/i);
+  if (!match) {
+    res.set("WWW-Authenticate", 'Basic realm="BlueCurrent Pool Ops"');
+    res.status(401).send("Authentication required.");
+    return;
+  }
+
+  let decoded = "";
+  try {
+    decoded = Buffer.from(match[1], "base64").toString("utf8");
+  } catch (error) {
+    res.set("WWW-Authenticate", 'Basic realm="BlueCurrent Pool Ops"');
+    res.status(401).send("Authentication required.");
+    return;
+  }
+
+  const separatorIndex = decoded.indexOf(":");
+  const username = separatorIndex >= 0 ? decoded.slice(0, separatorIndex) : decoded;
+  const password = separatorIndex >= 0 ? decoded.slice(separatorIndex + 1) : "";
+
+  if (username !== SITE_BASIC_AUTH_USERNAME || password !== SITE_BASIC_AUTH_PASSWORD) {
+    res.set("WWW-Authenticate", 'Basic realm="BlueCurrent Pool Ops"');
+    res.status(401).send("Authentication required.");
+    return;
+  }
+
+  next();
+});
+
 app.use(express.static(path.join(process.cwd(), "public")));
 
 function requireText(value, field, minLength = 1) {
@@ -260,6 +304,10 @@ app.get("/api/config", async (req, res) => {
       };
     }),
   });
+});
+
+app.get("/api/health", async (req, res) => {
+  res.json({ ok: true });
 });
 
 app.post("/api/auth/login", async (req, res) => {

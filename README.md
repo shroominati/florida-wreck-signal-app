@@ -4,6 +4,7 @@ Node/Express app for pool service companies that need dispatch planning, technic
 
 This version includes:
 - role-based login for owners, dispatchers, and technicians
+- customer portal for service requests, complaints, photo uploads, and referrals
 - route optimization with live road-network routing when Mapbox is configured
 - technician portal for visit logging, chemistry, notes, photos, and GPS capture
 - employee profiles with avatars, certifications, emergency contacts, and payroll summaries
@@ -31,6 +32,33 @@ PORT=8791 npm run app:start
 - Owner: `owner@bluecurrent.local` / `owner123!`
 - Dispatcher: `dispatch@bluecurrent.local` / `dispatch123!`
 - Technician: `mia@bluecurrent.local` / `tech123!`
+- Technician: `serena@bluecurrent.local` / `tech123!`
+- Customer: `lena@alton.local` / `customer123!`
+- Customer: `hoa@harborview.local` / `customer123!`
+
+## Deploy to Render
+
+The repo includes a Render Blueprint in `render.yaml`.
+
+Recommended setup:
+
+1. Create a new Render `Blueprint` from this repo.
+2. Let Render create:
+   - one web service: `bluecurrent-pool-ops`
+   - one Postgres database: `bluecurrent-pool-ops-db`
+3. Set the optional site-wide password env vars if you want the whole app hidden before login:
+   - `SITE_BASIC_AUTH_USERNAME`
+   - `SITE_BASIC_AUTH_PASSWORD`
+4. Set optional integration env vars if needed:
+   - `MAPBOX_ACCESS_TOKEN`
+   - `QBO_CLIENT_ID`
+   - `QBO_CLIENT_SECRET`
+   - `QBO_REDIRECT_URI`
+
+Notes:
+- Health check uses `/api/health`.
+- All persistent app data should live in `DATABASE_URL` on Render Postgres.
+- App login still handles owner, dispatcher, technician, and customer permissions after the site password.
 
 ## Frontend build
 
