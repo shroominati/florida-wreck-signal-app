@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: florida-wreck-signal
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm run wreck:start
+    healthCheckPath: /healthz
+    envVars:
+      - key: WRECK_APP_AUTH_ENABLED
+        value: "true"
+      - key: WRECK_APP_USER
+        sync: false
+      - key: WRECK_APP_PASSWORD
+        sync: false
